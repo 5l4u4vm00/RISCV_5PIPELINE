@@ -73,6 +73,16 @@ RUN mkdir -p /opt/lua-language-server && \
   tar -xz -C /opt/lua-language-server && \
   ln -s /opt/lua-language-server/bin/lua-language-server /usr/local/bin/lua-language-server
 
+# ============================
+# Install Verible (SystemVerilog parser, linter, formatter, language server)
+# ============================
+ENV VERIBLE_VERSION=v0.0-4047-g67f70383
+RUN cd /tmp && \
+  wget -q https://github.com/chipsalliance/verible/releases/download/${VERIBLE_VERSION}/verible-${VERIBLE_VERSION}-linux-static-x86_64.tar.gz && \
+  tar -xzf verible-${VERIBLE_VERSION}-linux-static-x86_64.tar.gz && \
+  cp verible-${VERIBLE_VERSION}/bin/* /usr/local/bin/ && \
+  rm -rf verible-${VERIBLE_VERSION}*
+
 # Create working directory
 WORKDIR /workspace
 

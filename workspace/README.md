@@ -175,9 +175,3 @@ sudo apt install gcc-riscv64-unknown-elf
 - 確認 `SIM_END` 位址被寫入 `-1`
 - 增加最大模擬週期數 (修改 `top_tb.sv` 中的 `MAX_CYCLE`)
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.sv", ".svh" },
-	callback = function()
-		vim.bo.filetype = "systemverilog"
-	end,
-})
