@@ -1,20 +1,18 @@
-`include "./define.sv"
-
 module ins_decoder (
     output logic                       reg_web,
-    output logic [6:0]                 opcode,
-    output logic [2:0]                 branch_typ,
-    output logic [3:0]                 funct3,
+    output logic [1:0]                 branch_typ,
     output logic [2:0]                 alu_code,
-    output logic [$clog2(`REG_NUM):0]  r1_index,
-    output logic [$clog2(`REG_NUM):0]  r2_index,
-    output logic [$clog2(`REG_NUM):0]  rd_index,
+    output logic [3:0]                 funct3,
+    output logic [6:0]                 opcode,
+    output logic [$clog2(`REG_NUM):0]  r1_idx,
+    output logic [$clog2(`REG_NUM):0]  r2_idx,
+    output logic [$clog2(`REG_NUM):0]  rd_idx,
     output logic [`DATA_WIDTH - 1:0]   imm,
     input  logic [`DATA_WIDTH - 1:0]   ir
 );
-  assign r1_index = `RS1;
-  assign r2_index = `RS2;
-  assign rd_index = `RD;
+  assign r1_idx = `RS1;
+  assign r2_idx = `RS2;
+  assign rd_idx = `RD;
   assign opcode   = `OPCODE;
   assign funct3   = `FUNCT_3;
 
