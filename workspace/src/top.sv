@@ -1,23 +1,12 @@
-`include "./rtl/define.sv"
-`include "./rtl/ins_decoder.sv"
+`include "./SRAM_wrapper.sv"
 
 module top (
     input clk,
     input rst
 );
 
-  logic  clk_b;
 
 
-  SRAM_wrapper IM1 (
-      .CK (),
-      .CS (),
-      .OE (),
-      .WEB(),
-      .A  (),
-      .DI (),
-      .DO ()
-  );
 
 
   SRAM_wrapper DM1 (
