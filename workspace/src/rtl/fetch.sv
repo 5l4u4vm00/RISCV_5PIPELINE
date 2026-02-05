@@ -1,7 +1,7 @@
 `include "./define.sv"
 `include "../SRAM_wrapper.sv"
 
-module fetch_cycle (
+module fetch (
   input                      clk,
   input                      rst,
   input                      pc_src_e,

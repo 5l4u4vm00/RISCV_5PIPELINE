@@ -1,7 +1,7 @@
 `include "./define.sv"
 
 module control_unit (
-  input        funct7,
+  input  [6:0] funct7,
   input  [2:0] funct3,
   input  [6:0] opcode,
   output [1:0] result_src,
@@ -19,7 +19,7 @@ module control_unit (
 always @(*) begin
   case (opcode)
     `R_TYPE:begin
-      alu_control = {funct7, funct3};
+      alu_control = {funct7[5], funct3};
       alu_r1_src = 1'b0;
       alu_r2_src = 1'b0;
       reg_write = 1'b1;
@@ -32,7 +32,7 @@ always @(*) begin
     end
     `I_ALU: begin
       if (funct3 == 3'b101) begin
-        alu_control = {funct7, funct3};
+        alu_control = {funct7[5], funct3};
       end
       else begin
         alu_control = {1'b0, funct3};
